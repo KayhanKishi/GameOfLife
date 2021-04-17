@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="style.css">
 
 </head>
+
 <body>
     <div id="mainDiv">
         <div id="boxDiv">
@@ -19,19 +21,21 @@
             <div id="bottom"></div>
             <!-- <div class="shadow"></div> -->
         </div>
-    </div> 
-    
-        <div class="wrap">
-            <form action="">
-                <input class="gridSize" id="gridSize" type="text" placeholder="Enter Grid Size"/>
+    </div>
 
-            </form>
-        <!-- </div> -->
-            <a href="gol.html"></a>
-                <div class="startButton">
-                    Start
-                </div>  
-            </a>
+    <div class="wrapper">
+        <form action="">
+            <input class="gridSize" id="gridSize" type="text" placeholder="Enter Grid Size" />
+            <div class="dropDown">
+
+            </div>
+        </form>
+    </div>
+    <a href="gol.html" onclick="console.log(document.getElementById(gridSize).value)">
+        <div class="startButton">
+            Start
         </div>
+    </a>
 </body>
+
 </html>

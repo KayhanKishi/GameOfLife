@@ -204,7 +204,6 @@ body{
     transform: rotateX(90deg) translateZ(-250px) rotateY(180deg) translateX(0px);
 } */
 .wrap{
-    /* display: block; */
     margin: 0 auto;
     width: 30%;
     /* border: 1px solid black; */

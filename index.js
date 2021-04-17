@@ -23,5 +23,4 @@ function gridLayout() {
   gridLayout.appendChild(table);
 }
 
-// Start everything
 window.onload = initialize;

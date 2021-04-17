@@ -12,8 +12,9 @@ currentGen[0]=1;     //used for testing purposes to see if color function is wor
 
 
 // loop to continue running simulation
-updateGrid();
-color();
+// updateGrid();
+color()
+
 
 function createGenArrays() {
     for (let i = 0; i < rowNum*rowNum; i++) {
@@ -64,22 +65,31 @@ function clicking() {
         // this.setAttribute("class", "deadcell");
         currentGen[pos] = 0;
     }
-    console.log(currentGen)
+
+    updateGrid();
     color();
+    console.log(currentGen)
+    console.log(nextGen)
 }
 
 function updateGrid(){
     for (let i = 0; i < rowNum*rowNum; i++) {
-        let newCell = applyRule(i);
+        let newCell = applyRule(currentGen[i]);
 
-        // newGen[i] = newCell
+        nextGen[i] = newCell;
     }
     // set currentGen to newGen
 
 }
 
-function applyRule(){
+function applyRule(cell){
     // game logic
+   
+   
+    // if(cell == 1){               testing
+    //    return 5; 
+    // }
+
 }
 
 

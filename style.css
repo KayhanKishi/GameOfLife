@@ -220,15 +220,6 @@ body {
     transition: transform .5s;
     margin-top: 50px;
 }
-/* .startButton a{
-    text-decoration: none;
-    color: white;
-    text-align: center;
-    
-} */
-/* .startButton:hover{
-    transform: scale(1.2);
-} */
 
 #gridLayout {
   margin: 0;

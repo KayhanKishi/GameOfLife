@@ -2,7 +2,7 @@
 var rowNum = 30;
 var colNum = 30;
 
-let size = document.getElementById('gridSize');
+let size = document.getElementById("gridSize");
 let currentGen = [rowNum*rowNum];
 let nextGen = [rowNum*rowNum];
 
@@ -24,7 +24,7 @@ function createGenArrays() {
 }
 
 function gridLayout() {
-    let gridLayout = document.getElementById('gridLayout');
+    let gridLayout = document.getElementById("gridLayout");
     let table = document.createElement("table");
     let count =0;
     

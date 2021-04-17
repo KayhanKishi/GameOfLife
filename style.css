@@ -227,9 +227,9 @@ body {
     text-align: center;
     
 } */
-/* .startButton:hover{
+.startButton:hover{
     transform: scale(1.2);
-} */
+}
 
 #gridLayout {
   margin: 0;
@@ -398,3 +398,7 @@ td {
     /* border-left: 24px solid rgb(30, 201, 8);
     border-right: 24px solid rgb(30, 201, 8); */
 }
+
+/* .alivecell{
+  background-color: red;
+} */

@@ -1,29 +1,23 @@
-
-var rowNum = 30;
-var colNum = 50;
-
-let size = document.getElementById('gridSize');
+let size = 20;
 
 gridLayout();
-
 
 function gridLayout() {
     let gridLayout = document.getElementById('gridLayout');
     let table = document.createElement("table");
     
-    for (let i = 0; i < rowNum; i++) {
-        let tr = document.createElement("tr");
-        for (var j = 0; j < colNum; j++) {
+    for (let i = 0; i < size; i++) {
+        let row = document.createElement("tr");
+        for (var j = 0; j < size; j++) {
             let cell = document.createElement("td");
             cell.setAttribute("id", i + "-" + j);
-            tr.appendChild(cell);
+            row.appendChild(cell);
         }
-        table.appendChild(tr);
+        table.appendChild(row);
     }
     gridLayout.appendChild(table);
 }
 
 
 
-// Start everything
 window.onload = initialize;

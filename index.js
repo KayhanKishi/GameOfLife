@@ -1,6 +1,6 @@
 
-var rowNum = 5;
-var colNum = 5;
+var rowNum = 30;
+var colNum = 30;
 
 let size = document.getElementById('gridSize');
 let currentGen = [rowNum*rowNum];
@@ -25,7 +25,6 @@ function createGenArrays() {
 //         }
 //     }
 // }
-
 
 
 function gridLayout() {

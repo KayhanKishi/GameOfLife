@@ -1,0 +1,220 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', monospace;
+
+}
+
+body {
+  background-repeat: repeat;
+  background-image: url("img/bg.jpeg");
+}
+
+#mainDiv {
+  width: 260px;
+  height: 140px;
+  margin: 60px auto;
+  perspective: 500px;
+}
+
+@keyframes starter {
+  0% {
+    transform: scaleX(0);
+    /* transform: rotateY(0); */
+  }
+  100% {
+    transform: scaleX(3.5);
+  }
+}
+
+#boxDiv {
+  width: 300px;
+  transform-style: preserve-3d;
+  animation: rotate 6s linear infinite;
+  /* animation: starter 4s linear; */
+  cursor: pointer;
+}
+
+#boxDiv div {
+  position: absolute;
+  width: 300px;
+  height: 210px;
+  opacity: 0.7;
+  color: white;
+}
+
+#front {
+  transform: translateZ(150px);
+  background: black;
+  background-image: url(img/title.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 160px;
+}
+
+#back {
+  transform: rotateY(180deg) translateZ(150px);
+  background: #101010;
+  background-image: url(img/title.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 160px;
+}
+
+#left {
+  transform: rotateY(-90deg) translateX(-150px);
+  transform-origin: left;
+  background: black;
+  background-image: url(img/title.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 160px;
+}
+
+#right {
+  transform: rotateY(90deg) translateX(150px);
+  transform-origin: right;
+  background: #101010;
+  background-image: url(img/title.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 160px;
+}
+
+#top {
+  transform: rotateX(-90deg) translateY(-150px);
+  transform-origin: top;
+  background: black;
+  background-image: url(img/title.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 200px;
+}
+
+#bottom {
+  transform: rotateX(90deg) translateY(150px);
+  transform-origin: bottom;
+  background: #101010;
+  background-image: url(img/title.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 160px;
+}
+
+
+@keyframes rotate {
+  0% {
+    transform: rotateY(0);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+.wrapper{
+
+  width: 410px;
+  background: rgb(10, 10, 10);
+  border-radius: 15px;
+  box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
+  animation-name: qnumani;
+  animation-duration: 2s;
+  position: fixed; /* or absolute */
+  top: 43%;
+  left: 39%;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+}
+
+
+/* Pre-render the bigger shadow, but hide it */
+.wrapper::after {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  opacity: 0;
+  /* transition: opacity 0.3s ease-in-out; */
+}
+
+/* Transition to showing the bigger shadow on hover */
+.wrapper:hover::after {
+  opacity: 1;
+}
+.wrapper:hover{
+  transform: scale(1.1);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  
+}
+.wrapper .title{
+  font-size: 22px;
+  font-weight: 100;
+  text-align: center;
+  line-height: 100px;
+  color: #fff;
+  user-select: none;
+  border-radius: 15px 15px 0 0;
+  background-color: black;
+  transition: margin-top 1s;
+}
+.wrapper form{
+  padding: 10px 30px 50px 30px;
+}
+.wrapper form .field{
+  height: 50px;
+  width: 100%;
+  margin-top: 20px;
+  position: relative;
+}
+.wrapper form .field input{
+  height: 100%;
+  width: 100%;
+  outline: none;
+  font-size: 17px;
+  padding-left: 20px;
+  border: 1px solid lightgrey;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.wrapper form .field input:focus,
+form .field input:valid{
+  border-color: red;
+}
+
+
+form .field input[type="submit"]{
+  /* color: #fff; */
+  border: 2px solid white;
+  padding-left: 0;
+  margin-top: -10px;
+  font-size: 22px;
+  font-weight: 500;
+  cursor: pointer;
+  color:white;
+  background: black;
+  transition: all 0.3s ease;
+}
+form .field input[type="submit"]:active{
+  transform: scale(0.95);
+  color:red;
+}
+form .signup-link{
+  color: #fff9f9;
+  margin-top: 20px;
+  text-align: center;
+}
+form .pass-link a,
+form .signup-link a{
+  transition: all 0.5s ease;
+  color:red;
+  text-decoration: none;
+}
+form .pass-link a:hover,
+form .signup-link a:hover{
+  /* text-decoration: underline; */
+    color:red;
+
+}
+.signup-link{
+  color:red;
+}
+::placeholder{
+  color: red;
+}
+

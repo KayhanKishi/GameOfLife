@@ -75,7 +75,7 @@ body {
     transform: rotateY(0deg) translateZ(0px);
   }
   100%{
-    transform:translateZ(150px);
+    transform:rotateY(360deg) rotateX(720deg) translateZ(150px);
   }
 }
 
@@ -86,14 +86,14 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: 160px;
-  animation: back 3s forwards;
+  animation: back 2.5s forwards;
 }
 @keyframes back{
   0%{
     transform: rotateY(0deg) translateZ(0px);
   }
   100%{
-    transform: rotateY(180deg) translateZ(150px);
+    transform: rotateY(180deg) rotateX(360deg) translateZ(150px);
   }
 }
 
@@ -105,14 +105,14 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: 160px;
-  animation: left 3s forwards;
+  animation: left 2.5s forwards;
 }
 @keyframes left{
   0%{
     transform: rotateY(0deg) translateZ(0px);
   }
   100%{
-    transform: rotateY(-90deg) translateX(-150px);
+    transform: rotateY(-90deg) rotateX(360deg) translateX(-150px);
   }
 }
 #right {
@@ -123,14 +123,14 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: 160px;
-  animation: right 3s forwards;
+  animation: right 3s forwards ;
 }
 @keyframes right{
   0%{
     transform: rotateY(0deg) translateZ(0px);
   }
   100%{
-    transform: rotateY(90deg) translateX(150px);
+    transform: rotateY(90deg) rotateX(360deg) translateX(150px);
   }
 }
 #top {
@@ -141,11 +141,11 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: 200px;
-  animation: top 3s forwards;
+  animation: top 4s forwards;
 }
 @keyframes top{
   0%{transform: rotateY(0deg) translateZ(0px);}
-  100%{transform: rotateX(-90deg) translateY(-150px);}
+  100%{transform: rotateX(-90deg) translateY(-150px) scaleY(1.4);}
 }
 
 #bottom {
@@ -156,11 +156,11 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: 160px;
-  animation: bottom 3s forwards;
+  animation: bottom 4s forwards;
 }
 @keyframes bottom{
   0%{transform: rotateY(0deg) translateZ(0px);}
-  100%{transform: rotateX(90deg) translateY(150px);}
+  100%{transform: rotateX(90deg) translateY(150px) scaleY(1.4);}
 }
 #front2 {
   transform: translateZ(75px);
@@ -169,6 +169,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: 80px;
+  /* animation: popOut 1s ease; */
 }
 
 #back2 {
@@ -178,6 +179,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: 80px;
+  /* animation: popOut 2.5s ease; */
 }
 
 #left2 {
@@ -188,6 +190,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: 80px;
+  /* animation: popOut 1.5s ease; */
 }
 
 #right2 {
@@ -198,6 +201,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: 80px;
+  /* animation: popOut 2s ease; */
 }
 
 #top2 {
@@ -208,6 +212,8 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: 80px;
+  /* animation: popOut 1s ease; */
+  /* transform: scaleY(1.4); */
 }
 
 #bottom2 {
@@ -218,6 +224,8 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: 80px;
+  /* animation: popOut 1s ease; */
+  /* transform: scaleY(1.4); */
 }
 
 @keyframes rotate {
@@ -284,12 +292,12 @@ a{
 .startButton:hover {
   transform: scale(1.2);
 }
-@keyframes leftSlide {
+@keyframes popOut {
   0% {
     transform: scale(0);
   }
   100% {
-    transform: scale(.9);
+    transform: scale(1);
   }
 }
 #gridLayout {

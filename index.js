@@ -1,8 +1,8 @@
 // var size = 30;
 // var size = 30;
 
-var size = 3;
-// var size = document.getElementById("gridSize");
+// var size = 3;
+var size = document.getElementById("gridSize");
 var currentGen = new Array(size * size).fill(0);
 var nextGen = new Array(size * size).fill(0);
 console.log(document.getElementsByName("size"));
@@ -258,4 +258,9 @@ function applyRule(cell,sum) {
     console.log("fourth if: " + currentGen[cell] + " | " + cell);
     nextGen[cell] = 1;
   }
+}
+
+function setcell(x,y,val){
+	index = y * size + x;
+	currentGen[index] = val;
 }

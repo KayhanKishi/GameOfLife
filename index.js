@@ -240,3 +240,8 @@ function applyRule(cell,sum) {
     nextGen[cell] = 1;
   }
 }
+
+function setcell(x,y,val){
+	index = y * size + x;
+	currentGen[index] = val;
+}

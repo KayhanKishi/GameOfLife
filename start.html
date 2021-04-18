@@ -25,13 +25,14 @@
 
     <div class="wrap">
         <form action="">
-            <input class="gridSize" id="gridSize" type="text" placeholder="Enter Grid Size" />
+            <input class="gridSize" id="gridSize" name="size" type="text" placeholder="Enter Grid Size" value="words"/>
             <div class="dropDown">
 
             </div>
         </form>
     </div>
-    <a href="gol.html" onclick="console.log(document.getElementById(gridSize).value)">
+    <button onclick='console.log(document.getElementsByName("size")[0])' >inputVal</button>
+    <a href="gol.html">
         <div class="startButton">
             Start
         </div>

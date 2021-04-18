@@ -5,6 +5,7 @@ var size = 3;
 // var size = document.getElementById("gridSize");
 var currentGen = new Array(size * size).fill(0);
 var nextGen = new Array(size * size).fill(0);
+console.log(document.getElementsByName("size"));
 
 // createGenArrays();
 currentGen[0] = 1; //used for testing purposes to see if color function is working / 1 means cell is alive, 0 is dead
@@ -210,18 +211,24 @@ function gameLogic() {
 
 function runGame(generations){
     do{
-        setTimeout(() => {
-            console.log("runGame");
-            console.log("start")
-            gameLogic();
-            console.log(nextGen);
-            currentGen = nextGen.slice(0);
-            nextGen = nextGen.fill(0);
-            console.log("changed |  currentGen: " + currentGen + " | nextGen " + nextGen);
-            console.log(currentGen.includes(1));
-        }, 2000);
-        
-        generations--;
+        // setTimeout(() => {
+           
+            setTimeout(() => {
+                console.log("runGame");
+                console.log("start")
+                gameLogic();
+                console.log(nextGen);
+                currentGen = nextGen.slice(0);
+                nextGen = nextGen.fill(0);
+                console.log("changed |  currentGen: " + currentGen + " | nextGen " + nextGen);
+                console.log(currentGen.includes(1));
+            // console.log("currentGeneration: " + currentGeneration + " | " + "newGeneration: "+ newGeneration)
+            }, 2000);
+
+            generations--;
+       
+        // }, 2000);
+        console.log("generations: " + generations)
            
     }while(currentGen.includes(1) && (generations > 0));
 

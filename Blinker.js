@@ -1,8 +1,3 @@
-function setcell(x,y,val){
-	index = y * size + x;
-	currentGen[index] = val;
-}
-
 function Blinker(){
 	offset = (size - 3) / 2;
 	currentGen = new Array(size * size).fill(0);

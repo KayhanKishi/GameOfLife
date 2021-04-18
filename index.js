@@ -209,28 +209,40 @@ function gameLogic() {
   console.log("nextGen: " + nextGen);
 }
 
-function runGame(generations){
-    do{
-        // setTimeout(() => {
-           
-            setTimeout(() => {
-                console.log("runGame");
-                console.log("start")
-                gameLogic();
-                console.log(nextGen);
-                currentGen = nextGen.slice(0);
-                nextGen = nextGen.fill(0);
-                console.log("changed |  currentGen: " + currentGen + " | nextGen " + nextGen);
-                console.log(currentGen.includes(1));
-            // console.log("currentGeneration: " + currentGeneration + " | " + "newGeneration: "+ newGeneration)
-            }, 2000);
+function sleep(ms) {
+  console.log("inside sleep | "+ ms)
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
 
-            generations--;
-       
-        // }, 2000);
-        console.log("generations: " + generations)
-           
-    }while(currentGen.includes(1) && (generations > 0));
+function runGame(iterations){
+    console.log("runGame");
+    console.log("start")
+    gameLogic();
+    // console.log(nextGen);
+    currentGen = nextGen.slice(0);
+    nextGen = nextGen.fill(0);
+    console.log("changed |  currentGen: " + currentGen + " | nextGen " + nextGen);
+    // console.log(currentGen.includes(1));
+}
+function executeRunGame(generations){
+  // let gen = generations
+  // setTimeout(function(){
+  //   if(gen>= 0){
+  //     console.log(gen)
+  //     runGame(gen)
+  //     gen--;
+  //   }
+  // }, 3000);
+  let iterations = 0;
+  if(iterations <= generations) clearInterval(executions)
+  iterations++;
+  let executions = setInterval(runGame(),1000)
+
+    // for(i = 0; i < generations;i++){
+    //   console.log(i);
+    //   // await sleep(1000)
+    //   runGame()
+    // }
 
 }
 

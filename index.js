@@ -1,8 +1,8 @@
 // var size = 30;
 // var size = 30;
 
-var size = 3;
-// var size = document.getElementById("gridSize");
+// var size = 3;
+var size = document.getElementById("gridSize");
 var currentGen = new Array(size * size).fill(0);
 var nextGen = new Array(size * size).fill(0);
 

@@ -11,15 +11,17 @@ var currentGen = new Array(size * size).fill(0);
 var nextGen = new Array(size * size).fill(0);
 
 // createGenArrays();
-currentGen[6] = 1; //used for testing purposes to see if color function is working / 1 means cell is alive, 0 is dead
-currentGen[4] = 1;
+currentGen[4] = 1; //used for testing purposes to see if color function is working / 1 means cell is alive, 0 is dead
 currentGen[5] = 1;
+currentGen[6] = 1;
 
 gridLayout();
 // loop to continue running simulation
 // updateGrid();
 color(currentGen);
 
+console.log("currentGen: " + currentGen);
+console.log("nextGen: " + nextGen);
 runGame(5);
 
 // function createGenArrays() {
@@ -218,9 +220,13 @@ function updateGrid() {
       applyRule(i,sum);
 
   }
-  currentGen = nextGen;
+  currentGen = nextGen.slice(0);
   console.log("currGen: " + currentGen);
   console.log("nextGen: " + nextGen);
+}
+
+function endInterval(interval){
+  clearInterval(interval)
 }
 
 function runGame(generations){
@@ -239,10 +245,16 @@ function runGame(generations){
     //     generations--;
            
     // }while(currentGen.includes(1) && (generations > 0));
+    iterations = 0
     const interval = setInterval(function() {
       // method to be executed;
      updateGrid();
      color(currentGen);
+     iterations++
+      if(iterations == generations){
+        console.log("\n\nend Interval")
+        endInterval(interval)
+      }
     }, 2000);
 
   //   setTimeout(() => {

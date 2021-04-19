@@ -252,10 +252,10 @@ body {
 .gridSize:focus {
   transform: scale(1.2);
 }
-@keyframes slideLeft{
+/* @keyframes slideLeft{
   0%{transform: translateX(-1500px);}
   100%{transform: translateX(0px);}
-}
+} */
 .startButton {
   text-decoration: none;
   font-size: 25px;
@@ -276,22 +276,22 @@ body {
 a{
   text-decoration: none;
 }
-@keyframes slideRight{
+/* @keyframes slideRight{
   0%{transform: translateX(1500px);}
   100%{transform: translateX(0px);}
-}
+} */
 
 .startButton:hover {
   transform: scale(1.2);
 }
-@keyframes leftSlide {
+/* @keyframes leftSlide {
   0% {
     transform: scale(0);
   }
   100% {
     transform: scale(.9);
   }
-}
+} */
 #gridLayout {
   margin: 0 auto;
   margin-left: 150px;
@@ -343,14 +343,14 @@ td {
   animation: wrap 1s ease;
 
 }
-@keyframes wrap{
+/* @keyframes wrap{
   0%{
     transform: translateY(-1000px);
   }
   100%{
     transform: translateY(0px);
   }
-}
+} */
 .row {
   width: 100%;
   height: 50px;
@@ -360,14 +360,14 @@ td {
   /* backdrop-filter: blur(2px); */
   animation: row 2.5s ease;
 }
-@keyframes row{
+/* @keyframes row{
   0%{
     transform: translateY(2000px);
   }
   100%{
     transform: translateY(0px);
   }
-}
+} */
 .row2{
   width: 100%;
   height: auto;

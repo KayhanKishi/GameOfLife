@@ -1,24 +1,29 @@
 // var size = 30;
 // var size = 30;
 
-// var size = 3;
-// var size = document.getElementById("gridSize");
-let size = 6;
+var temparr =[];
+function myfunction(){
+  localStorage.setItem("size", document.getElementById("gridSize").value);
+}
+var size = 4;
+// var size = localStorage.getItem("size");
 var currentGen = new Array(size * size).fill(0);
 var nextGen = new Array(size * size).fill(0);
 console.log(document.getElementsByName("size"));
 
 // createGenArrays();
-currentGen[12] = 1; //used for testing purposes to see if color function is working / 1 means cell is alive, 0 is dead
-currentGen[13] = 1;
-currentGen[14] = 1;
+currentGen[4] = 1; //used for testing purposes to see if color function is working / 1 means cell is alive, 0 is dead
+currentGen[5] = 1;
+currentGen[6] = 1;
 
 gridLayout();
 // loop to continue running simulation
 // updateGrid();
 color(currentGen);
 
-runGame();
+console.log("currentGen: " + currentGen);
+console.log("nextGen: " + nextGen);
+runGame(5);
 
 // function createGenArrays() {
 //   for (let i = 0; i < size * size; i++) {
@@ -76,12 +81,12 @@ function clicking() {
   console.log(nextGen);
 }
 
-function updateGrid() {
-  gameLogic()
-  currentGen = nextGen
-  nextGen = nextGen.fill(0);
-  // set currentGen to newGen
-}
+// function updateGrid() {
+//   gameLogic()
+//   // currentGen = nextGen
+//   // nextGen = nextGen.fill(0);
+//   // set currentGen to newGen
+// }
 
 function condition(val, i) {
   if (val >= 0 && val < currentGen.length) {
@@ -130,7 +135,7 @@ function condition(val, i) {
   return false;
 }
 function n(i) {
-  let n1 = (n2 = n3 = n4 = n5 = n6 = n7 = 0);
+  let n1 = (n2 = n3 = n4 = n5 = n6 = n7 =n8= 0);
   let sum = 0;
   neighbors = [];
   val1 = i - size - 1;
@@ -186,23 +191,33 @@ function n(i) {
   // neighbor 6
   if (condition(val6, i)) {
     n6 = val6;
-    console.log("n6: " + currentGen[n6]);
+   // console.log("n6: " + currentGen[n6]);
     // neighbors.push(n6);
     sum += currentGen[n6];
+  //  console.log(currentGen[12])
+
   }
 
   // neighbor 7
   if (condition(val7, i)) {
     n7 = val7;
-    console.log("n7: " + currentGen[n7]);
+   // console.log("n7: " + currentGen[n7]);
     // neighbors.push(n7);
+  //  console.log(currentGen[12])
+
     sum += currentGen[n7];
+    
   }
 
   // neighbor 8
   if (condition(val8, i)) {
     n8 = val8;
-    console.log("n8: " + currentGen[n8]);
+  //  console.log("n8: " + currentGen[n8]);
+ //   console.log(n8)
+    temparr.push(n8)
+   // console.log(currentGen[n8])
+  //  console.log("i is " + i)
+   // console.log(currentGen[13])
     // neighbors.push(n8);
     sum += currentGen[n8];
   }
@@ -210,71 +225,89 @@ function n(i) {
   return sum;
 }
 
-function gameLogic() {
+function updateGrid() {
 //   let currNeighbors = [];
   let sum = 0;
-  if (currentGen) {
-    for (i = 0; i < currentGen.length; i++) {
+
+    for (let i = 0; i < currentGen.length; i++) {
       sum = n(i);
       console.log("i: " + i + " neighbors: " + sum);
       applyRule(i,sum);
-    }
+
   }
-  color(nextGen);
+  currentGen = nextGen.slice(0);
+  console.log("currGen: " + currentGen);
   console.log("nextGen: " + nextGen);
 }
 
-function sleep(ms) {
-  console.log("inside sleep | "+ ms)
-  return new Promise(resolve => setTimeout(resolve, ms));
+function endInterval(interval){
+  clearInterval(interval)
 }
 
-function runGame(iterations){
-  
-    console.log("runGame");
-    console.log("start")
-    gameLogic();
-    // console.log(nextGen);
-    currentGen = nextGen.slice(0);
-    nextGen = nextGen.fill(0);
-    console.log("changed |  currentGen: " + currentGen + " | nextGen " + nextGen);
-  
-    
-    // console.log(currentGen.includes(1));
-}
-function executeRunGame(generations){
-  // let gen = generations
-  // setTimeout(function(){
-  //   if(gen>= 0){
-  //     console.log(gen)
-  //     runGame(gen)
-  //     gen--;
-  //   }
-  // }, 3000);
-  let iterations = 0;
-  if(iterations <= generations) clearInterval(executions)
-  iterations++;
-  let executions = setInterval(runGame(),1000)
+function runGame(generations){
+    // do{
+    //     setTimeout(() => {
+    //         console.log("runGame");
+    //         console.log("start")
+    //         gameLogic();
+    //         console.log(nextGen);
+    //         currentGen = nextGen.slice(0);
+    //         nextGen = nextGen.fill(0);
+    //         console.log("changed |  currentGen: " + currentGen + " | nextGen " + nextGen);
+    //         console.log(currentGen.includes(1));
+    //     }, 5000);
+        
+    //     generations--;
+           
+    // }while(currentGen.includes(1) && (generations > 0));
+    iterations = 0
+    const interval = setInterval(function() {
+      // method to be executed;
+     updateGrid();
+     color(currentGen);
+     iterations++
+      if(iterations == generations){
+        console.log("\n\nend Interval")
+        endInterval(interval)
+      }
+    }, 2000);
 
-    // for(i = 0; i < generations;i++){
-    //   console.log(i);
-    //   // await sleep(1000)
-    //   runGame()
-    // }
-
+  //   setTimeout(() => {
+  //     updateGrid();
+  //  }, 8000);
+    // currentGen=currentGen.fill(1);
+    // color(currentGen);
+    console.log("temp arr"+temparr)
 }
+
+// function applyRule(cell,sum) {
+//   if((currentGen[cell] == 0) && (sum == 3)){
+//     console.log("first if: " + currentGen[cell] + " | " + cell);
+//     nextGen[cell] = 1;
+//   }else if(sum < 2){
+//     nextGen[cell] = 0;
+//   }else if(sum > 3){
+//     nextGen[cell] = 0;
+//   }else if(2 <= sum <= 3){
+//     console.log("fourth if: " + currentGen[cell] + " | " + cell);
+//     nextGen[cell] = 1;
+//   }
+// }
 
 function applyRule(cell,sum) {
-  if((currentGen[cell] == 0) && (sum == 3)){
-    console.log("first if: " + currentGen[cell] + " | " + cell);
-    nextGen[cell] = 1;
-  }else if(sum < 2){
-    nextGen[cell] = 0;
-  }else if(sum > 3){
-    nextGen[cell] = 0;
-  }else if(2 <= sum <= 3){
-    console.log("fourth if: " + currentGen[cell] + " | " + cell);
-    nextGen[cell] = 1;
+  if(currentGen[cell] == 1){
+    if(sum>3 || sum<2){
+      nextGen[cell] = 0;
+    }
+    else if(sum==3 || sum ==2){
+      nextGen[cell] = 1;
+    }
+  
+
+  }else {
+    if(sum==3 ){
+      nextGen[cell] = 1;
+    }
   }
 }
 

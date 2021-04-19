@@ -2,22 +2,23 @@
 // var size = 30;
 
 // var size = 3;
-var size = document.getElementById("gridSize");
+// var size = document.getElementById("gridSize");
+let size = 6;
 var currentGen = new Array(size * size).fill(0);
 var nextGen = new Array(size * size).fill(0);
 console.log(document.getElementsByName("size"));
 
 // createGenArrays();
-currentGen[0] = 1; //used for testing purposes to see if color function is working / 1 means cell is alive, 0 is dead
-currentGen[5] = 1;
-currentGen[7] = 1;
+currentGen[12] = 1; //used for testing purposes to see if color function is working / 1 means cell is alive, 0 is dead
+currentGen[13] = 1;
+currentGen[14] = 1;
 
 gridLayout();
 // loop to continue running simulation
 // updateGrid();
 color(currentGen);
 
-runGame(5);
+runGame();
 
 // function createGenArrays() {
 //   for (let i = 0; i < size * size; i++) {
@@ -85,12 +86,25 @@ function updateGrid() {
 function condition(val, i) {
   if (val >= 0 && val < currentGen.length) {
 
+//example based on 3x3 grid with index starting at 0
+
     //right side
     if (i % size == 2) {
 
-        // console.log("val: " + val + " i + 1: "+ (i+1) + " | " + (val !== (i + 1)) );
+    
+      // (val !== (i - (size - 1))) 
+      // neighbor can not be cell from opposite side (i.e. neighbor(5) != 3)
 
-        // console.log("val: " + val + " i - (size - 1): "+ (i - (size - 1)) + " | " + (val !== (i - (size - 1))));
+
+      //(val !== (i + 1))
+      //neighbor can not be the first element of the next row (i.e. neighbor(5) != 6)
+
+      //(val !== (i + (size + 1))) [might be where the issue is since it was made to handle a special case]
+      // where (neighbor(6) != 2) -- diagonal value
+
+        console.log("val: " + val + " i + 1: "+ (i+1) + " | " + (val !== (i + 1)) );
+
+        console.log("val: " + val + " i - (size - 1): "+ (i - (size - 1)) + " | " + (val !== (i - (size - 1))));
 
       if ((val !== (i - (size - 1))) && (val !== (i + (size + 1))) && (val !== (i + 1))) {
         // console.log("condition 1 | " + val);
@@ -100,16 +114,16 @@ function condition(val, i) {
     // left side
     } else if (i % size == 0) {
 
-        // console.log("val: " + val + " i -1: "+ (i-1) + " | " + (val !== (i - 1)));
+        console.log("val: " + val + " i -1: "+ (i-1) + " | " + (val !== (i - 1)));
 
-        // console.log("val: " + val + " i + size - 1: "+ (i + (size - 1)) + " " + (val !== (i + (size - 1))));
+        console.log("val: " + val + " i + size - 1: "+ (i + (size - 1)) + " " + (val !== (i + (size - 1))));
 
       if ((val !== (i - 1)) && (val !== (i - (size + 1))) && (val !== (i + (size - 1)))) {
         // console.log("condition 2 | " + val);
         return true;
       }
     } else {
-    //   console.log("else condition | " + val);
+      console.log("else condition | " + val);
       return true;
     }
   }
@@ -129,9 +143,10 @@ function n(i) {
   val8 = i + size + 1;
 
   // neighbor 1
+  console.log("\n\n" + i)
   if (condition(val1, i)) {
     n1 = val1;
-    // console.log("n1: " + currentGen[n1]);
+    console.log("n1: " + currentGen[n1]);
     // neighbors.push(n1);
     sum += currentGen[n1];
   }
@@ -139,7 +154,7 @@ function n(i) {
   // neighbor 2
   if (condition(val2, i)) {
     n2 = val2;
-    // console.log("n2: " + currentGen[n2]);
+    console.log("n2: " + currentGen[n2]);
     // neighbors.push(n2);
     sum += currentGen[n2];
   }
@@ -147,7 +162,7 @@ function n(i) {
   // neighbor 3
   if (condition(val3, i)) {
     n3 = val3;
-    // console.log("n3: " + currentGen[n3]);
+    console.log("n3: " + currentGen[n3]);
     // neighbors.push(n3);
     sum += currentGen[n3];
   }
@@ -155,7 +170,7 @@ function n(i) {
   // neighbor 4
   if (condition(val4, i)) {
     n4 = val4;
-    // console.log("n4: " + currentGen[n4]);
+    console.log("n4: " + currentGen[n4]);
     // neighbors.push(n4);
     sum += currentGen[n4];
   }
@@ -163,7 +178,7 @@ function n(i) {
   // neighbor 5
   if (condition(val5, i)) {
     n5 = val5;
-    // console.log("n5: " + currentGen[n5]);
+    console.log("n5: " + currentGen[n5]);
     // neighbors.push(n5);
     sum += currentGen[n5];
   }
@@ -171,7 +186,7 @@ function n(i) {
   // neighbor 6
   if (condition(val6, i)) {
     n6 = val6;
-    // console.log("n6: " + currentGen[n6]);
+    console.log("n6: " + currentGen[n6]);
     // neighbors.push(n6);
     sum += currentGen[n6];
   }
@@ -179,7 +194,7 @@ function n(i) {
   // neighbor 7
   if (condition(val7, i)) {
     n7 = val7;
-    // console.log("n7: " + currentGen[n7]);
+    console.log("n7: " + currentGen[n7]);
     // neighbors.push(n7);
     sum += currentGen[n7];
   }
@@ -187,7 +202,7 @@ function n(i) {
   // neighbor 8
   if (condition(val8, i)) {
     n8 = val8;
-    // console.log("n8: " + currentGen[n8]);
+    console.log("n8: " + currentGen[n8]);
     // neighbors.push(n8);
     sum += currentGen[n8];
   }
@@ -215,6 +230,7 @@ function sleep(ms) {
 }
 
 function runGame(iterations){
+  
     console.log("runGame");
     console.log("start")
     gameLogic();
@@ -222,6 +238,8 @@ function runGame(iterations){
     currentGen = nextGen.slice(0);
     nextGen = nextGen.fill(0);
     console.log("changed |  currentGen: " + currentGen + " | nextGen " + nextGen);
+  
+    
     // console.log(currentGen.includes(1));
 }
 function executeRunGame(generations){

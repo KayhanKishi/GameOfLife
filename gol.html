@@ -147,16 +147,22 @@
         <div class="row3" style="display:flex;justify-content:center;align-items:center;margin-top:10%;flex-direction:column;">
             <h1>Pattern</h1>
                 <div class="patterns" style="width: 20%;display:flex;justify-content: center;align-items: center;">
-                        <select id="mySelect">
-                            <option value="">Select</option>
-                            <option value="block">The Block</option>
-                            <option value="blinker">The Blinker</option>
-                            <option value="beacon">The Beacon</option>
-                        </select>
+                    <select id="selectBox" onchange="changeFunc();">
+                        <option value="selected">Select</option>
+                        <option value="block">The Block</option>
+                        <option value="blinker">The Blinker</option>
+                        <option value="beacon">The Beacon</option>
+                        <option value="toad">The Toad</option>
+                        <option value="pulsar">The Pulsar</option>
+                        <option value="glider">The Glider</option>
+    
+                    </select>
                     </div>
         </div>
     </div>
     <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="Patterns.js"></script>
+
 </body>
 
 </html>

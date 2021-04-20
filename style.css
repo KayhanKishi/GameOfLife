@@ -290,6 +290,7 @@ body {
   border-radius: 15px;
   box-shadow: 10px 10px 6px rgb(66, 66, 66);
   animation: slideRight 2s ease;
+  cursor: pointer;
 }
 a {
   text-decoration: none;

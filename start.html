@@ -32,15 +32,15 @@
             </div>
         </form>
     </div>
-    <button class="startButton" onclick="window.location.replace('./gol.html')">
+    <button class="startButton" onclick="let tmpSize = document.getElementById('gridSize').value; if(tmpSize>=2){location.replace('./gol.html'); localStorage.setItem('size', tmpSize);}">
         START
     </button>
-    <a href="gol.html" onclick="myfunction()">
+    <!-- <a href="gol.html" onclick="myfunction()">
         <div class="startButton">
             Start
         </div>
-    </a>
-    <script type="text/javascript" src="index.js"></script>
+    </a> -->
+    <!-- <script type="text/javascript" src="index.js"></script> -->
 </body>
 
 </html>

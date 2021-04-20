@@ -2,7 +2,7 @@
 // // var size = 30;
 
 // var temparr =[];
-var size = 12;
+var size = localStorage.getItem("size");
 check = 0;
 var interval; 
 

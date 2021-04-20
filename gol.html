@@ -7,7 +7,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        #playButton {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 20%;
 
+        }
+
+        #playButtonImg {
+            width: 50%;
+            cursor: pointer;
+            transform: scale(0.77);
+            -webkit-transition: transform 0.3s ease-in-out;
+            -moz-transition: transform .3s ease-in-out;
+            -ms-transition: transform .3s ease-in-out;
+            -webkit-filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, .7));
+            filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, .7));
+        }
+
+        #playButtonImg:hover {
+            transform: scale(1);
+            -webkit-transition: transform .3s ease-in-out;
+            -moz-transition: transform .3s ease-in-out;
+            -ms-transition: transform .3s ease-in-out;
+        }
+
+        #playButtonImg:active{
+            transform: scale(0.85);
+            -webkit-transition: transform 0.1s ease-in-out;
+            -moz-transition: transform .1s ease-in-out;
+            -ms-transition: transform .1s ease-in-out;
+        }
+
+        .textContainer{
+            position: absolute; 
+            left: 50%; top: 50%; 
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+        }
+
+        .textTag{
+            font-size: 100%;
+            color:white;
+        }
+
+    </style>
 </head>
 
 <body>
@@ -24,32 +70,88 @@
         </a>
 
     </div>
-    
+
     <div class="wrapper">
         <div class="row2">
             <div id="gridLayout"> </div>
         </div>
         <div class="row">
-            <div class="inc" id="inc1">+1
-            </div>
-            <div class="reset">
-                <p> Reset</p>
-            </div>
-            <input type="checkbox" id="play">
-            <label class="icon" for="play"></label>
 
-            <div class="patterns">
-                <select id="mySelect" >
+            <!-- <div style="width: 25%;display:flex;justify-content:center;align-items:center;">
+                <div
+                    style="display: flex;justify-content:center;align-items:center;border-radius:50%;width:50%;background-color:black;width:100%;height:auto;">
+                    <h1 style="color: white">+1</h1>
+                </div>
+
+            </div> -->
+
+
+            <div id="playButton" style="position:relative;">
+
+                <img src="./img/INC1.svg" alt="play-button" onclick="console.log('clicked image' +  this)"
+                    id="playButtonImg">
+                <!-- <div class="textContainer">
+                    <h1 class="textTag">+1</h1>
+                </div> -->
+            </div>
+
+            <div id="playButton" style="position:relative;">
+                    <img src="./img/RESET.svg" alt="play-button" onclick="console.log('clicked image' +  this)"
+                    id="playButtonImg">
+
+                <!-- <img src="./img/circle.svg" alt="play-button" onclick="console.log('clicked image' +  this)"
+                    id="playButtonImg">
+                <div class="textContainer">
+                    <h1 class="textTag">RESET</h1>
+                </div> -->
+            </div>
+
+            <!-- <div class="inc">
+                <img src="./img/circle-black.png" alt="increment" id="incImage">
+                <div class="text"><h1>+1</h1></div> 
+            </div> -->
+            <!-- <div class="inc" id="inc1">+1</div> -->
+            <!-- <div class="reset">
+                <p> Reset</p>
+            </div> -->
+            <div id="playButton"><img src="./img/PLAY.svg" alt="play-button"
+                    onclick="simulateCheck()" id="playButtonImg"></div>
+            <!-- <input type="checkbox" id="play" >
+            <label class="icon" for="play"></label> -->
+
+            <div class="patterns" style="width: 20%;display:flex;justify-content: center;align-items: center;">
+                <select id="mySelect">
                     <option value="">Select</option>
                     <option value="block">The Block</option>
                     <option value="blinker">The Blinker</option>
                     <option value="beacon">The Beacon</option>
                 </select>
             </div>
-            <div class="inc" id="inc23">+23
+
+
+            <div id="playButton" style="position:relative;">
+                    <img src="./img/INC23.svg" alt="play-button" onclick="console.log('clicked image' +  this)"
+                    id="playButtonImg">
+
+                <!-- <img src="./img/circle.svg" alt="play-button" onclick="console.log('clicked image' +  this)"
+                    id="playButtonImg">
+                <div class="textContainer">
+                    <h1 class="textTag">RESET</h1>
+                </div> -->
             </div>
+
+            <!-- <div id="playButton" style="position:relative;">
+
+                <img src="./img/inc.svg" alt="play-button" onclick="console.log('clicked image' +  this)"
+                    id="playButtonImg">
+                <div class="textContainer">
+                    <h1 class="textTag">+23</h1>
+                </div>
+            </div> -->
+
         </div>
     </div>
     <script type="text/javascript" src="index.js"></script>
 </body>
+
 </html>

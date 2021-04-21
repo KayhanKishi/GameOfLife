@@ -2,7 +2,7 @@
 // // var size = 30;
 
 // var temparr =[];
-var size = localStorage.getItem("size");
+var size = parseInt(localStorage.getItem("size"));
 check = 0;
 var interval; 
 
@@ -13,7 +13,7 @@ function play(it){
   btn = document.getElementById("playbtn");
   btn.src = "./img/PAUSE.png"
   if(it == undefined){
-    runGame(5);
+    runGame(1000);
   }else{
     console.log("it: " + it)
     runGame(it)
